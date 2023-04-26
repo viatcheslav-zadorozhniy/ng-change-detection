@@ -1,0 +1,26 @@
+:root {
+  --spacer: 1rem;
+}
+
+html,
+body {
+  block-size: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+a {
+  text-decoration: none;
+
+  &.active-link {
+    text-decoration: underline;
+  }
+
+  header & {
+    color: inherit;
+  }
+}

@@ -1,0 +1,18 @@
+h3 {
+  margin-block-start: 0;
+  margin-block-end: 4px;
+}
+
+a {
+  &[href^="mailto"]::before {
+    content: "📧 ";
+  }
+
+  &[href^="tel"]::before {
+    content: "📞 ";
+  }
+
+  &[href^="http"]::before {
+    content: "🌐 ";
+  }
+}
