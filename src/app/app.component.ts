@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   private readonly pageContainer!: ElementRef<HTMLElement>;
 
   constructor() {
-    this.patchChangeDetectorRef();
+    // this.patchChangeDetectorRef();
   }
 
   ngOnInit(): void {
