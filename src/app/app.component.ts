@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
   private patchChangeDetectorRef(): void {
     /**
-     * Make `markForCheck` work the same way as `detectChanges`.
+     * Make `markForCheck` work the same way as `detectChanges` - mark views as dirty AND perform change detection.
      * It is necessary for `NoopNgZone` mode.
      */
     Object.getPrototypeOf(this.cdr).markForCheck = function() {

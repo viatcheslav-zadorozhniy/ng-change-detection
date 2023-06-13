@@ -15,7 +15,7 @@ export class OnclickButtonComponent {
   ngOnInit(): void {
     /**
      * `onclick` event handler added in the component triggers change detection the same as event binding in the template.
-     * 
+     *
      * To prevent it we have several options:
      * 1. Use `ChangeDetectionStrategy.OnPush` for the root (or subtree root) component.
      * 2. Add `onclick` handler outside of `NgZone` (https://angular.io/guide/zone).

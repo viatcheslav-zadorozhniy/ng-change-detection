@@ -14,5 +14,5 @@ import { Link } from '../../domain';
   ],
 })
 export class LinkComponent {
-  @Input() link!: Link;
+  @Input({ required: true }) link!: Link;
 }

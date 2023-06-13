@@ -15,7 +15,7 @@ import { getUserHash } from '../../utils';
   ],
 })
 export class UserComponent {
-  @Input() user!: User;
+  @Input({ required: true }) user!: User;
 
   getUserHash(user: User): string {
     /**

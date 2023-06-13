@@ -12,7 +12,7 @@ export class AsyncTaskButtonComponent {
   /**
    * Async tasks (`setTimeout`, `requestAnimationFrame`, `Promise.then()`, etc.)
    * triggers change detection (if the default `ChangeDetectionStrategy` is used).
-   * 
+   *
    * To prevent it we have several options:
    * 1. Use `ChangeDetectionStrategy.OnPush` for the root component.
    * 2. Schedule the tasks outside of `NgZone` (https://angular.io/guide/zone).
