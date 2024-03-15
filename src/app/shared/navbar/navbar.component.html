@@ -1,1 +1,3 @@
-<app-link *ngFor="let link of links" [link]="link"></app-link>
+@for (link of links; track $index) {
+  <app-link [link]="link" />
+}

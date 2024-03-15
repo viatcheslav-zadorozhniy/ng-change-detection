@@ -1,16 +1,16 @@
-<app-header></app-header>
+<app-header />
 
 <main>
   <!-- `ngZoneEventCoalescing` bootstrap option can prevent change detection duplication. -->
   <!-- See `main.ts` for an example. -->
   <aside (click)="$event">
-    <app-navbar (click)="$event"></app-navbar>
+    <app-navbar (click)="$event" />
   </aside>
 
   <!-- To prevent change detection for the `scroll` event set the appropriate `zone.js` flag. -->
   <!-- See `zone-config.js` for an example. -->
   <!-- Alternatively, handle scroll outside of NgZone (see `app.component.ts` for an example). -->
   <div #pageContainer class="page-container" (scroll)="$event">
-    <router-outlet></router-outlet>
+    <router-outlet />
   </div>
 </main>

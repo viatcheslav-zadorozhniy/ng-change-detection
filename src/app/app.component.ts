@@ -4,9 +4,9 @@ import {
   Component,
   ElementRef,
   NgZone,
-  OnInit,
-  ViewChild,
+  effect,
   inject,
+  viewChild,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -24,30 +24,29 @@ import { HeaderComponent, NavbarComponent } from './shared';
     RouterOutlet,
   ],
 })
-export class AppComponent implements OnInit {
-  private readonly ngZone = inject(NgZone);
-  private readonly cdr = inject(ChangeDetectorRef);
+export class AppComponent {
+  #ngZone = inject(NgZone);
+  #cdr = inject(ChangeDetectorRef);
 
-  @ViewChild('pageContainer', { static: true })
-  private readonly pageContainer!: ElementRef<HTMLElement>;
+  private readonly pageContainer = viewChild.required<ElementRef<HTMLElement>>('pageContainer');
 
   constructor() {
-    // this.patchChangeDetectorRef();
+    // this.#patchChangeDetectorRef();
+
+    effect(() => {
+      // Handle scroll event outside of `NgZone` (https://angular.io/guide/zone).
+      // this.#ngZone.runOutsideAngular(() => {
+      //   this.pageContainer().nativeElement.addEventListener('scroll', () => {});
+      // });
+    });
   }
 
-  ngOnInit(): void {
-    // Handle scroll event outside of `NgZone` (https://angular.io/guide/zone).
-    // this.ngZone.runOutsideAngular(() => {
-    //   this.pageContainer.nativeElement.addEventListener('scroll', () => {});
-    // });
-  }
-
-  private patchChangeDetectorRef(): void {
+  #patchChangeDetectorRef() {
     /**
      * Make `markForCheck` work the same way as `detectChanges` - mark views as dirty AND perform change detection.
      * It is necessary for `NoopNgZone` mode.
      */
-    Object.getPrototypeOf(this.cdr).markForCheck = function() {
+    Object.getPrototypeOf(this.#cdr).markForCheck = function() {
       this.detectChanges();
     };
   }

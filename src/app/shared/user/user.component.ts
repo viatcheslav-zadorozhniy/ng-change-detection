@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { User } from '../../domain';
 import { UserHashPipe } from '../../pipes';
@@ -15,7 +15,7 @@ import { getUserHash } from '../../utils';
   ],
 })
 export class UserComponent {
-  @Input({ required: true }) user!: User;
+  readonly user = input.required<User>();
 
   getUserHash(user: User): string {
     /**

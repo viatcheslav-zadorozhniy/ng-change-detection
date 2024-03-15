@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, NgZone, inject } from '@angular/cor
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AsyncTaskButtonComponent {
-  private readonly ngZone = inject(NgZone);
+  #ngZone = inject(NgZone);
 
   /**
    * Async tasks (`setTimeout`, `requestAnimationFrame`, `Promise.then()`, etc.)
@@ -18,16 +18,16 @@ export class AsyncTaskButtonComponent {
    * 2. Schedule the tasks outside of `NgZone` (https://angular.io/guide/zone).
    * 3. Configure `zone.js` to disable patching of the appropriate tasks (see `zone-config.js` for an example).
    */
-  onClick(): void {
-    this.scheduleAsyncTasks();
+  onClick() {
+    this.#scheduleAsyncTasks();
 
     // Schedule the tasks outside of NgZone.
-    // this.ngZone.runOutsideAngular(() => {
-    //   this.scheduleAsyncTasks();
+    // this.#ngZone.runOutsideAngular(() => {
+    //   this.#scheduleAsyncTasks();
     // });
   }
 
-  private scheduleAsyncTasks(): void {
+  #scheduleAsyncTasks() {
     setTimeout(() => {});
     requestAnimationFrame(() => {});
   }

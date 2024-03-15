@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { Link } from '../../domain';
@@ -14,5 +14,5 @@ import { Link } from '../../domain';
   ],
 })
 export class LinkComponent {
-  @Input({ required: true }) link!: Link;
+  readonly link = input.required<Link>();
 }

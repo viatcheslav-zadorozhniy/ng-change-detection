@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { Link } from '../../domain';
@@ -15,7 +14,6 @@ import { AsyncTaskButtonComponent } from '../async-task-button';
   imports: [
     AsyncTaskButtonComponent,
     LinkComponent,
-    NgFor,
     OnclickButtonComponent,
   ],
 })

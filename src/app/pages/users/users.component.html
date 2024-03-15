@@ -1,1 +1,3 @@
-<app-user *ngFor="let user of users$ | async" [user]="user"></app-user>
+@for (user of users$ | async; track user.id) {
+  <app-user [user]="user" />
+}

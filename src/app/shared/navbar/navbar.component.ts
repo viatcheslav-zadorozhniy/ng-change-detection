@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { Link } from '../../domain';
@@ -12,7 +11,6 @@ import { LinkComponent } from '../link';
   // changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     LinkComponent,
-    NgFor,
   ],
 })
 export class NavbarComponent {

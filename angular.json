@@ -21,11 +21,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/app",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
+            "sourceMap": true,
             "polyfills": [
               "src/zone-config.js",
               "zone.js"
@@ -55,25 +56,19 @@
                   "maximumError": "4kb"
                 }
               ],
-              "sourceMap": true,
+              "sourceMap": false,
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
               "namedChunks": true
             },
             "standalone": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
               "namedChunks": true,
-              "main": "src/main-standalone.ts",
+              "browser": "src/main-standalone.ts",
               "tsConfig": "tsconfig-standalone.app.json"
             },
             "standalone-production": {
@@ -89,9 +84,9 @@
                   "maximumError": "4kb"
                 }
               ],
-              "sourceMap": true,
+              "sourceMap": false,
               "outputHashing": "all",
-              "main": "src/main-standalone.ts",
+              "browser": "src/main-standalone.ts",
               "tsConfig": "tsconfig-standalone.app.json"
             }
           },
@@ -104,14 +99,14 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production"
+              "buildTarget": "app:build:production"
             },
             "development": {
-              "browserTarget": "app:build:development"
+              "buildTarget": "app:build:development"
             },
             "standalone": {
               "port": 4201,
-              "browserTarget": "app:build:standalone"
+              "buildTarget": "app:build:standalone"
             }
           },
           "defaultConfiguration": "development"

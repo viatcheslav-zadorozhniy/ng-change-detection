@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
   ],
 })
 export class AppModule implements DoBootstrap {
-  ngDoBootstrap(appRef: ApplicationRef): void {
+  ngDoBootstrap(appRef: ApplicationRef) {
     // Bootstrap standalone application.
     appRef.bootstrap(AppComponent);
   }

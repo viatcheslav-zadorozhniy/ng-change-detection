@@ -1,1 +1,3 @@
-<a [routerLink]="link.href" [routerLinkActive]="'active-link'">{{ link.text }}</a>
+@if (link(); as link) {
+  <a [routerLink]="link.href" [routerLinkActive]="'active-link'">{{ link.text }}</a>
+}
